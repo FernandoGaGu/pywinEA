@@ -35,18 +35,7 @@ class Plotter:
         for algorithm in algorithms:
             #  To extract the algorithms in wrapper.
             if isinstance(algorithm, WrapperBase):
-
-                if isinstance(algorithm, IslandModel):
-                    for sub_algorithm in algorithm.algorithms:
-                        # Warning message for hypervolume calculation in  GlobalizationGA
-                        if isinstance(sub_algorithm, MOAbase):
-                            warnings.warn(
-                                "The hypervolume is a relative measure, the GlobalizationGA algorithm reduces "
-                                "the number of features at each batch, therefore this measure is not representative "
-                                "of the evolution of the algorithm. You can pass each algorithm a function to evaluate "
-                                "the number of features with a fixed value to avoid this behavior.")
-                            break
-
+                
                 for wrapper_alg in algorithm.algorithms:
                     if isinstance(wrapper_alg, GA):
                         mono_objective_algorithms.append(wrapper_alg)

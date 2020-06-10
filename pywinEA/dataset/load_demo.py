@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import pywinEA
 
 
 def load_demo():
@@ -64,8 +65,9 @@ def load_demo():
 	The returned value is a dictionary where 'x_data' are the predictor variables, 'y_data' the class 
 	labels and  'features' the name of the characteristics.
 	""")
-
-	data = pd.read_csv(os.path.abspath('pywinEA/dataset/data/BreastCancerWisconsin.csv'), index_col=0)
+	path = '/'.join(os.path.abspath(pywinEA.__file__).split('/')[:-1])
+	
+	data = pd.read_csv(path+'/dataset/data/BreastCancerWisconsin.csv', index_col=0)
 	x_data = data.iloc[:, 1:].values
 	y_data = data.iloc[:, 0].values
 	features = data.columns[1:].values

@@ -1,6 +1,7 @@
 README.md
 setup.py
 pywinEA/__init__.py
+pywinEA/version.py
 pywinEA.egg-info/PKG-INFO
 pywinEA.egg-info/SOURCES.txt
 pywinEA.egg-info/dependency_links.txt
@@ -13,6 +14,7 @@ pywinEA/algorithm/nsga2.py
 pywinEA/algorithm/spea2.py
 pywinEA/dataset/__init__.py
 pywinEA/dataset/load_demo.py
+pywinEA/dataset/data/BreastCancerWisconsin.csv
 pywinEA/error/__init__.py
 pywinEA/error/exceptions.py
 pywinEA/fitness/__init__.py

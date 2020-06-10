@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pywinEA
-Version: 0.5.0
+Version: 0.6.0
 Summary: Package with basic implementations of mono and multi-objective genetic algorithms for feature selection.
 Home-page: https://github.com/FernandoGaGu/pywinEA
 Author: Fernando Garcia

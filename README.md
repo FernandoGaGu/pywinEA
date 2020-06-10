@@ -6,10 +6,23 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+<br />
+<p align="center">
+	<img src="img/PyWinEA_logo.gif" alt="Logo">
+</p>
 
 > Python package with lightweight implementations of genetic algorithms for classification/regression tasks.
 
-<!-- More description as needed -->
+## Description
+
+The pywinEA module is a native python implementation of some of the most widely used genetic algorithms. 
+This package has been developed on the top of scikit-learn which allows to use any model already implemented. This module aims to provide a good alternative to other feature selection techniques with full scikit-learn compatibility.
+
+**Why evolutionary algorithms?**
+
+One of the first stages in the development of any machine learning model is to filter out redundant and/or irrelevant attributes. However, the complexity of finding the best combination of attributes is most often an NP problem.
+
+Among the most frequent feature selection strategies are embedded methods. These methods combine a heuristic search strategy with a classification/regression model. This is where genetic algorithms come into play. This type of strategy represents one of the best alternatives to address the immense space of search generally reaching good solutions.
 
 ## Install
 
@@ -31,12 +44,24 @@ It is possible that older versions of the packages listed above may work. Howeve
 
 ## Usage
 
-PUT HERE SOME EXAMPLES
-```js
-// Fill out with actual use case
-let <Replace Title> = require('<Replace Title>')
-<Replace Title>.useMe()
-```
+Examples of the basic use of the package can be found in the notebooks directory. A diagram of the module structure is also shown below. For more advanced use it is recommended to look at the documentation. 
+
+Additionally by using the classes defined in the interface subpackage it is possible to implement new operators, algorithms, etc. Feel free to add things.
+
+<br />
+<p align="center">
+	<img src="img/basic-example.gif" alt="Logo">
+</p>
+
+## Module structure
+
+In progress...
+
+## Notes
+
+The package is still in testing, it is possible to find some unexpected errors. Any problem 👉  <a href="https://github.com/FernandoGaGu/pywinEA/issues"> issues </a>
+
+
 
 ## License
 

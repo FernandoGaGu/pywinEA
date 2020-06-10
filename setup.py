@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pywinEA", 
-    version="0.5.0",
+    version="0.6.0",
     author="Fernando Garcia",
     author_email="fernando.garciagu@alumnos.upm.es",
     packages=setuptools.find_packages(),
@@ -19,5 +19,6 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License"
     ],
+    package_data={'pywinEA': ['dataset/data/BreastCancerWisconsin.csv']},
     python_requires='>=3.6',
 )

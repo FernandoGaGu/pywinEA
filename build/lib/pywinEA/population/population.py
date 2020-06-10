@@ -487,7 +487,7 @@ class Block:
 
         # If feature hasn't been found
         if target_key is None:
-            raise Exception("A feature from col_feats is not present in dictionary (%s). "
+            raise Exception("A feature from features is not present in dictionary (%s). "
                             "Please check that all values are present" % target_val)
 
         return target_key, target_idx
