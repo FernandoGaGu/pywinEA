@@ -95,13 +95,11 @@ POPULATION_SIZE = 50
 GENERATIONS = 200
 FITNESS = GaussianNB()
 CV = 5
-ANNHILATION = 0.1
-ELITISM = 0.2
 MUTATION = 0.1
 
 nsga = NSGA2(
     population_size=POPULATION_SIZE, generations=GENERATIONS, 
-    fitness=mono_objective, mutation_rate=ELITISM, 
+    fitness=FITNESS, cv=CV, mutation_rate=MUTATION, 
     optimize_features=True, positive_class=1, id="NSGA2"
 )
 
