@@ -1,5 +1,0 @@
-numpy
-sklearn
-tqdm
-pandas
-matplotlib

@@ -117,7 +117,7 @@ The result of the multi-objective algorithms is a non-dominant front of solution
 
 <br />
 <p align="center">
-	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/Pareto-front-example.png" alt="Structure">
+	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/Pareto-front-example.png" alt="Example">
 </p>
 
 (Complete examples: [notebooks](https://github.com/FernandoGaGu/pywinEA/tree/master/notebooks/))
