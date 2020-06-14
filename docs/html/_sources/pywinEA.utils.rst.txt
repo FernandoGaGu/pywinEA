@@ -1,0 +1,19 @@
+pywinEA.utils
+=============
+
+pywinEA.utils.fast\_non\_dominated\_sort module
+-----------------------------------------------
+
+.. automodule:: pywinEA.utils.fast_non_dominated_sort
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.utils.hypervolume module
+--------------------------------
+
+.. automodule:: pywinEA.utils.hypervolume
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

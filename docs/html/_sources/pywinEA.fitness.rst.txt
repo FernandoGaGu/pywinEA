@@ -1,0 +1,10 @@
+pywinEA.fitness 
+===============
+
+pywinEA.fitness.objective module
+--------------------------------
+
+.. automodule:: pywinEA.fitness.objective
+   :members:
+   :undoc-members:
+   :show-inheritance:

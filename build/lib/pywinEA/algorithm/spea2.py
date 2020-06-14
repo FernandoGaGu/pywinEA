@@ -608,7 +608,7 @@ class SPEA2(MOAbase):
             # Evaluate fitness for each objective
             self._population = self._evaluate_fitness(population=self._population)
 
-            #  if the first interaction has already occurred, put the population and the archive together
+            #  if the first interaction has been already carried out, put the population and the archive together
             if self.archive is not None:
                 restart_solutions(self.archive.fitness)
                 pt = self._population.merge_population(self._population, self.archive)

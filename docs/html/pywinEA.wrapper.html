@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pywinEA.wrapper &#8212; PyWinEA  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="setup module" href="setup.html" />
+    <link rel="prev" title="pywinEA.visualization" href="pywinEA.visualization.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="setup.html" title="setup module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.visualization.html" title="pywinEA.visualization"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" accesskey="U">pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinea-wrapper">
+<h1>pywinEA.wrapper<a class="headerlink" href="#pywinea-wrapper" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pywinEA.wrapper.wrapper">
+<span id="pywinea-wrapper-wrapper-module"></span><h2>pywinEA.wrapper.wrapper module<a class="headerlink" href="#module-pywinEA.wrapper.wrapper" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.wrapper.wrapper.IslandModel">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.wrapper.wrapper.</code><code class="sig-name descname">IslandModel</code><span class="sig-paren">(</span><em class="sig-param">*algorithms</em>, <em class="sig-param">num_batches: int = 1</em>, <em class="sig-param">verbose: bool = False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.IslandModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pywinEA.wrapper.wrapper.Parallel" title="pywinEA.wrapper.wrapper.Parallel"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.wrapper.wrapper.Parallel</span></code></a></p>
+<p>Algorithm that allows executing several algorithms in parallel, bringing together the best solutions every
+certain number of generations (called batches) and reinitializing the populations using all the combination of
+the features present in the best solutions.</p>
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.IslandModel.best_performance">
+<em class="property">property </em><code class="sig-name descname">best_performance</code><a class="headerlink" href="#pywinEA.wrapper.wrapper.IslandModel.best_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with the performance achieved by each algorithm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.IslandModel.continue_training">
+<code class="sig-name descname">continue_training</code><span class="sig-paren">(</span><em class="sig-param">generations</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.IslandModel.continue_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that calls the continue_training() method of each of the previously trained algorithms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.IslandModel.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.IslandModel.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that calls the fit() method of each of the algorithms provided as parameters. Consult the
+documentation of each of the algorithms for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – 2d-array
+Predictor variables</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Parallel
+Models fitted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.wrapper.wrapper.Parallel">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.wrapper.wrapper.</code><code class="sig-name descname">Parallel</code><span class="sig-paren">(</span><em class="sig-param">*algorithms</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.algorithm.GAbase" title="pywinEA.interface.algorithm.GAbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.algorithm.GAbase</span></code></a>, <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.wrapper.WrapperBase" title="pywinEA.interface.wrapper.WrapperBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.wrapper.WrapperBase</span></code></a></p>
+<p>Wrapper that allows executing various genetic algorithms provided as parameters in parallel. This class follows
+the basic interface defined for genetic algorithms so all its methods are available.</p>
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.algorithms">
+<em class="property">property </em><code class="sig-name descname">algorithms</code><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.algorithms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all algorithms.</p>
+<p>:return list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.best_features">
+<em class="property">property </em><code class="sig-name descname">best_features</code><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.best_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with the features selected by each algorithm.</p>
+<p>:return list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.best_performance">
+<em class="property">property </em><code class="sig-name descname">best_performance</code><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.best_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with the performance achieved by each algorithm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.continue_training">
+<code class="sig-name descname">continue_training</code><span class="sig-paren">(</span><em class="sig-param">generations</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.continue_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that calls the continue_training() method of each of the previously trained algorithms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>generations</strong> – int
+Extra number of generations.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Parallel
+Parallel with the models fitted using the best feature combination.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that calls the fit() method of each of the algorithms provided as parameters. Consult the
+documentation of each of the algorithms for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – 2d-array
+Predictor variables</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Parallel
+Models fitted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.get_current_generation">
+<em class="property">property </em><code class="sig-name descname">get_current_generation</code><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.get_current_generation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current generation for each algorithm.</p>
+<p>:return list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.get_dataset">
+<code class="sig-name descname">get_dataset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.get_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implemented for compatibility with GenAlgBase interface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.get_dataset_from">
+<code class="sig-name descname">get_dataset_from</code><span class="sig-paren">(</span><em class="sig-param">key: int</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.get_dataset_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that returns a dataset with the selected features and associated class labels.
+In this case the dataset generated using the best performing model will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – int
+Algorithm index.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>X (2d-array)
+Dataset</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:return y (1d-array)</dt><dd><p>Labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function not available for wrappers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">model=None</em>, <em class="sig-param">file_name=None</em>, <em class="sig-param">dir_name='./_PyWinModels'</em>, <em class="sig-param">overwrite=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that saves trained models in the specified directory (by default _PyWinModels). The name of the
+files will consist of the id of the model preceded by par(N)_ where N indicates the number of the model
+within the Parallel instance. With overwrite parameter if there is a file with the same name it will be
+overwritten. Internally this method will call the superclass save() method. For more information consult
+GenAlgBase class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – None
+Implemented for compatibility. No effects.</p></li>
+<li><p><strong>file_name</strong> – None
+Implemented for compatibility. No effects.</p></li>
+<li><p><strong>dir_name</strong> – &lt;optional&gt; str
+Directory where the file is located.</p></li>
+<li><p><strong>overwrite</strong> – bool
+True for overwrite files (False by default.)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.set_features">
+<code class="sig-name descname">set_features</code><span class="sig-paren">(</span><em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.set_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that assigns to the numbers with which the genes (features) in the algorithm are encoded the real
+name of the feature. If no features are provided, the default names will be the column number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> – 1d-array
+Features in the same order as the columns of the predictor variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.wrapper.wrapper.Parallel.training_evolution">
+<code class="sig-name descname">training_evolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.wrapper.wrapper.Parallel.training_evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function implemented for compatibility with the interface.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pywinEA.wrapper</a><ul>
+<li><a class="reference internal" href="#module-pywinEA.wrapper.wrapper">pywinEA.wrapper.wrapper module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinEA.visualization.html"
+                        title="previous chapter">pywinEA.visualization</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="setup.html"
+                        title="next chapter">setup module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pywinEA.wrapper.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="setup.html" title="setup module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.visualization.html" title="pywinEA.visualization"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" >pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fernando García.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+    </div>
+  </body>
+</html>

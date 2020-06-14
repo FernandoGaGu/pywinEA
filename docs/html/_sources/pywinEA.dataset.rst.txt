@@ -1,0 +1,11 @@
+pywinEA.dataset
+===============
+
+pywinEA.dataset.load\_demo module
+---------------------------------
+
+.. automodule:: pywinEA.dataset.load_demo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

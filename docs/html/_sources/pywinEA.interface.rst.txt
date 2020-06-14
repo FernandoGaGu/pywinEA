@@ -1,0 +1,43 @@
+pywinEA.interface
+=================
+
+
+pywinEA.interface.algorithm module
+----------------------------------
+
+.. automodule:: pywinEA.interface.algorithm
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.interface.fitness module
+--------------------------------
+
+.. automodule:: pywinEA.interface.fitness
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.interface.imputation module
+-----------------------------------
+
+.. automodule:: pywinEA.interface.imputation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.interface.operators module
+----------------------------------
+
+.. automodule:: pywinEA.interface.operators
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.interface.wrapper module
+--------------------------------
+
+.. automodule:: pywinEA.interface.wrapper
+   :members:
+   :undoc-members:
+   :show-inheritance:

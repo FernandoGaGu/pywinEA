@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pywinEA.utils &#8212; PyWinEA  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pywinEA.visualization" href="pywinEA.visualization.html" />
+    <link rel="prev" title="pywinEA.population" href="pywinEA.population.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.visualization.html" title="pywinEA.visualization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.population.html" title="pywinEA.population"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" accesskey="U">pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinea-utils">
+<h1>pywinEA.utils<a class="headerlink" href="#pywinea-utils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pywinEA.utils.fast_non_dominated_sort">
+<span id="pywinea-utils-fast-non-dominated-sort-module"></span><h2>pywinEA.utils.fast_non_dominated_sort module<a class="headerlink" href="#module-pywinEA.utils.fast_non_dominated_sort" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pywinEA.utils.fast_non_dominated_sort.dominance">
+<code class="sig-prename descclassname">pywinEA.utils.fast_non_dominated_sort.</code><code class="sig-name descname">dominance</code><span class="sig-paren">(</span><em class="sig-param">solution_1</em>, <em class="sig-param">solution_2</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.utils.fast_non_dominated_sort.dominance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that analyze solutions dominance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>solution_1</strong> – Solution</p></li>
+<li><p><strong>solution_2</strong> – Solution</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:return int</dt><dd><p>If solution_1 dominates solution_2 -&gt; return 1</p>
+</dd>
+<dt>:return -1</dt><dd><p>If solution_2 dominates solution_1 -&gt; return -1</p>
+</dd>
+<dt>:return 0</dt><dd><p>If neither solution dominates the other -&gt; return 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pywinEA.utils.fast_non_dominated_sort.fast_non_dominated_sort">
+<code class="sig-prename descclassname">pywinEA.utils.fast_non_dominated_sort.</code><code class="sig-name descname">fast_non_dominated_sort</code><span class="sig-paren">(</span><em class="sig-param">solutions: list</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.utils.fast_non_dominated_sort.fast_non_dominated_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply fast non dominated sort.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solutions</strong> – list
+List of Solution instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pywinEA.utils.hypervolume">
+<span id="pywinea-utils-hypervolume-module"></span><h2>pywinEA.utils.hypervolume module<a class="headerlink" href="#module-pywinEA.utils.hypervolume" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pywinEA.utils.hypervolume.hypervolume">
+<code class="sig-prename descclassname">pywinEA.utils.hypervolume.</code><code class="sig-name descname">hypervolume</code><span class="sig-paren">(</span><em class="sig-param">pareto_front: numpy.ndarray</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.utils.hypervolume.hypervolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that calculate hypervolume based on inclusion-exclusion algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pareto_front</strong> – list
+List of solutions in Pareto front</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:return float</dt><dd><p>Hypervolume covered by Pareto front</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pywinEA.utils</a><ul>
+<li><a class="reference internal" href="#module-pywinEA.utils.fast_non_dominated_sort">pywinEA.utils.fast_non_dominated_sort module</a></li>
+<li><a class="reference internal" href="#module-pywinEA.utils.hypervolume">pywinEA.utils.hypervolume module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinEA.population.html"
+                        title="previous chapter">pywinEA.population</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinEA.visualization.html"
+                        title="next chapter">pywinEA.visualization</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pywinEA.utils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.visualization.html" title="pywinEA.visualization"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.population.html" title="pywinEA.population"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" >pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fernando García.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+    </div>
+  </body>
+</html>

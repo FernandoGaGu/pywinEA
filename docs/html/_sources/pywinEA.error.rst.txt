@@ -1,0 +1,11 @@
+pywinEA.error package
+=====================
+
+pywinEA.error.exceptions module
+-------------------------------
+
+.. automodule:: pywinEA.error.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

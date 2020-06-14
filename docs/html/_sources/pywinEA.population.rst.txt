@@ -1,0 +1,19 @@
+pywinEA.population
+==================
+
+pywinEA.population.population module
+------------------------------------
+
+.. automodule:: pywinEA.population.population
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.population.representation module
+----------------------------------------
+
+.. automodule:: pywinEA.population.representation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

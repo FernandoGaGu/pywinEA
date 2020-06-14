@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pywinEA.fitness &#8212; PyWinEA  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pywinEA.imputation" href="pywinEA.imputation.html" />
+    <link rel="prev" title="pywinEA.error package" href="pywinEA.error.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.imputation.html" title="pywinEA.imputation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.error.html" title="pywinEA.error package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" accesskey="U">pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinea-fitness">
+<h1>pywinEA.fitness<a class="headerlink" href="#pywinea-fitness" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pywinEA.fitness.objective">
+<span id="pywinea-fitness-objective-module"></span><h2>pywinEA.fitness.objective module<a class="headerlink" href="#module-pywinEA.fitness.objective" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.fitness.objective.MonoObjectiveCV">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.fitness.objective.</code><code class="sig-name descname">MonoObjectiveCV</code><span class="sig-paren">(</span><em class="sig-param">estimator: sklearn.base.BaseEstimator</em>, <em class="sig-param">cv: sklearn.model_selection._split.BaseCrossValidator</em>, <em class="sig-param">score: str</em>, <em class="sig-param">n_jobs: int = 1</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.fitness.objective.MonoObjectiveCV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.fitness.FitnessStrategy" title="pywinEA.interface.fitness.FitnessStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.fitness.FitnessStrategy</span></code></a></p>
+<p>Class that calculates an individual’s fitness using an estimator and a cross-validation strategy.</p>
+<dl class="method">
+<dt id="pywinEA.fitness.objective.MonoObjectiveCV.eval_fitness">
+<code class="sig-name descname">eval_fitness</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">num_feats</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.fitness.objective.MonoObjectiveCV.eval_fitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that evaluates the quality of a solution using the estimator and the cross-validation strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – 2d-array
+Predictor variables</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels</p></li>
+<li><p><strong>num_feats</strong> – int
+Total number of features</p></li>
+</ul>
+</dd>
+</dl>
+<p>:return float</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.fitness.objective.MonoObjectiveCV.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.fitness.objective.MonoObjectiveCV.fit" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Fit the estimator.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – 2d-array
+Predictor variables.</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels</p></li>
+</ul>
+</dd>
+</dl>
+<p>:return sklearn.base.BaseEstimator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.fitness.objective.MonoObjectiveCV.score">
+<em class="property">property </em><code class="sig-name descname">score</code><a class="headerlink" href="#pywinEA.fitness.objective.MonoObjectiveCV.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return scores representation.</p>
+<p>:return str</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pywinEA.fitness</a><ul>
+<li><a class="reference internal" href="#module-pywinEA.fitness.objective">pywinEA.fitness.objective module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinEA.error.html"
+                        title="previous chapter">pywinEA.error package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinEA.imputation.html"
+                        title="next chapter">pywinEA.imputation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pywinEA.fitness.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.imputation.html" title="pywinEA.imputation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.error.html" title="pywinEA.error package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" >pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fernando García.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+    </div>
+  </body>
+</html>

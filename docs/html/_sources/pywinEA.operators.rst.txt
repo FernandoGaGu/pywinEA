@@ -1,0 +1,19 @@
+pywinEA.operators
+=================
+
+pywinEA.operators.individual module
+-----------------------------------
+
+.. automodule:: pywinEA.operators.individual
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.operators.population module
+-----------------------------------
+
+.. automodule:: pywinEA.operators.population
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

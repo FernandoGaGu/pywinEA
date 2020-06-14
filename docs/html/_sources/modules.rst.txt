@@ -1,0 +1,8 @@
+pywinEA
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   pywinEA
+   setup

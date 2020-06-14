@@ -1,0 +1,20 @@
+pywinEA package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+
+   pywinEA.algorithm
+   pywinEA.dataset
+   pywinEA.error
+   pywinEA.fitness
+   pywinEA.imputation
+   pywinEA.interface
+   pywinEA.operators
+   pywinEA.population
+   pywinEA.utils
+   pywinEA.visualization
+   pywinEA.wrapper
+

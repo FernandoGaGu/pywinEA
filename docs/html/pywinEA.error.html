@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pywinEA.error package &#8212; PyWinEA  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pywinEA.fitness" href="pywinEA.fitness.html" />
+    <link rel="prev" title="pywinEA.dataset" href="pywinEA.dataset.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.fitness.html" title="pywinEA.fitness"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.dataset.html" title="pywinEA.dataset"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" accesskey="U">pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinea-error-package">
+<h1>pywinEA.error package<a class="headerlink" href="#pywinea-error-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pywinEA.error.exceptions">
+<span id="pywinea-error-exceptions-module"></span><h2>pywinEA.error.exceptions module<a class="headerlink" href="#module-pywinEA.error.exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.FeaturesFunctionError">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">FeaturesFunctionError</code><a class="headerlink" href="#pywinEA.error.exceptions.FeaturesFunctionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when there is a failure due to the function to evaluate the number of features of a solution.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.FileExists">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">FileExists</code><a class="headerlink" href="#pywinEA.error.exceptions.FileExists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when trying to overwrite existing files.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.ImpossibleHandleMissing">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">ImpossibleHandleMissing</code><a class="headerlink" href="#pywinEA.error.exceptions.ImpossibleHandleMissing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when data contains missing values and no way has been provided to handle it.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.ImpossibleProcessLabels">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">ImpossibleProcessLabels</code><a class="headerlink" href="#pywinEA.error.exceptions.ImpossibleProcessLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when algorithm cannot process class labels.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.InconsistentParameters">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">InconsistentParameters</code><a class="headerlink" href="#pywinEA.error.exceptions.InconsistentParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when the parameters provided to the algorithm are inconsistent.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.MinimumNumberOfFeaturesAchieved">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">MinimumNumberOfFeaturesAchieved</code><a class="headerlink" href="#pywinEA.error.exceptions.MinimumNumberOfFeaturesAchieved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when the algorithm has converged to less than two features.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.UnfittedAlgorithm">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">UnfittedAlgorithm</code><a class="headerlink" href="#pywinEA.error.exceptions.UnfittedAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when trying to access parameters or methods with untrained algorithm</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinEA.error.exceptions.UnsuitableClassifier">
+<em class="property">exception </em><code class="sig-prename descclassname">pywinEA.error.exceptions.</code><code class="sig-name descname">UnsuitableClassifier</code><a class="headerlink" href="#pywinEA.error.exceptions.UnsuitableClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when a classifier is not suitable to perform a certain task.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pywinEA.error package</a><ul>
+<li><a class="reference internal" href="#module-pywinEA.error.exceptions">pywinEA.error.exceptions module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinEA.dataset.html"
+                        title="previous chapter">pywinEA.dataset</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinEA.fitness.html"
+                        title="next chapter">pywinEA.fitness</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pywinEA.error.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.fitness.html" title="pywinEA.fitness"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.dataset.html" title="pywinEA.dataset"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" >pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fernando García.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+    </div>
+  </body>
+</html>

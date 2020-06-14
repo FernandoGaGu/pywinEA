@@ -1,0 +1,26 @@
+pywinEA.algorithm
+=================
+
+pywinEA.algorithm.basic module
+------------------------------
+
+.. automodule:: pywinEA.algorithm.basic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.algorithm.nsga2 module
+------------------------------
+
+.. automodule:: pywinEA.algorithm.nsga2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.algorithm.spea2 module
+------------------------------
+
+.. automodule:: pywinEA.algorithm.spea2
+   :members:
+   :undoc-members:
+   :show-inheritance:

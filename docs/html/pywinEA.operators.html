@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pywinEA.operators &#8212; PyWinEA  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pywinEA.population" href="pywinEA.population.html" />
+    <link rel="prev" title="pywinEA.interface" href="pywinEA.interface.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.population.html" title="pywinEA.population"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.interface.html" title="pywinEA.interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" accesskey="U">pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinea-operators">
+<h1>pywinEA.operators<a class="headerlink" href="#pywinea-operators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pywinEA.operators.individual">
+<span id="pywinea-operators-individual-module"></span><h2>pywinEA.operators.individual module<a class="headerlink" href="#module-pywinEA.operators.individual" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.operators.individual.OnePoint">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.operators.individual.</code><code class="sig-name descname">OnePoint</code><a class="headerlink" href="#pywinEA.operators.individual.OnePoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.operators.CrossOverStrategy" title="pywinEA.interface.operators.CrossOverStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.operators.CrossOverStrategy</span></code></a></p>
+<p>Cross two individuals by randomly selecting a cut point and assembling the resulting halves together.</p>
+<dl class="method">
+<dt id="pywinEA.operators.individual.OnePoint.cross_population">
+<em class="property">static </em><code class="sig-name descname">cross_population</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.individual.OnePoint.cross_population" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that selects individuals from the population (without replacement) to perform the crossover.
+When the population is odd an individual must be selected with replacement to maintain the population size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> – Population</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Population
+Offspring.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.operators.individual.RandomMutation">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.operators.individual.</code><code class="sig-name descname">RandomMutation</code><a class="headerlink" href="#pywinEA.operators.individual.RandomMutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.operators.MutationStrategy" title="pywinEA.interface.operators.MutationStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.operators.MutationStrategy</span></code></a></p>
+<p>Introduce random mutations.</p>
+<dl class="method">
+<dt id="pywinEA.operators.individual.RandomMutation.mutate">
+<em class="property">static </em><code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">mutation_rate: float</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.individual.RandomMutation.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that introduces mutations inside the population based on the established mutation rate using an
+uniform random distribution.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pywinEA.operators.population">
+<span id="pywinea-operators-population-module"></span><h2>pywinEA.operators.population module<a class="headerlink" href="#module-pywinEA.operators.population" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.operators.population.AnnihilateWorse">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.operators.population.</code><code class="sig-name descname">AnnihilateWorse</code><a class="headerlink" href="#pywinEA.operators.population.AnnihilateWorse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.operators.AnnihilationStrategy" title="pywinEA.interface.operators.AnnihilationStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.operators.AnnihilationStrategy</span></code></a></p>
+<p>Eliminate individuals who have a lower fitness value.</p>
+<dl class="method">
+<dt id="pywinEA.operators.population.AnnihilateWorse.annihilate">
+<em class="property">static </em><code class="sig-name descname">annihilate</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">annihilation: float</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.population.AnnihilateWorse.annihilate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function eliminates the worst individuals according to the selected “annihilation” parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> – Population</p></li>
+<li><p><strong>annihilation</strong> – float</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.operators.population.BestFitness">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.operators.population.</code><code class="sig-name descname">BestFitness</code><a class="headerlink" href="#pywinEA.operators.population.BestFitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.operators.ElitismStrategy" title="pywinEA.interface.operators.ElitismStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.operators.ElitismStrategy</span></code></a></p>
+<p>Create a new population using the individuals with the highest fitness value.</p>
+<dl class="method">
+<dt id="pywinEA.operators.population.BestFitness.select_elite">
+<em class="property">static </em><code class="sig-name descname">select_elite</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">elitism: float</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.population.BestFitness.select_elite" title="Permalink to this definition">¶</a></dt>
+<dd><p>FIX DESCRIPTION
+Function that selects the best individuals based on the elitism parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> – Population</p></li>
+<li><p><strong>elitism</strong> – float
+Percentage of individuals in the population that will form the elite.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Population
+Elite population</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.operators.population.RouletteWheel">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.operators.population.</code><code class="sig-name descname">RouletteWheel</code><a class="headerlink" href="#pywinEA.operators.population.RouletteWheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.operators.SelectionStrategy" title="pywinEA.interface.operators.SelectionStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.operators.SelectionStrategy</span></code></a></p>
+<p>Class that implements the roulette wheel selection strategy applicable to genetic algorithms.
+Calculate the cumulative probability of survival of each individual based on their fitness.
+Individuals with a higher probability will have more opportunities to be randomly selected.
+If the fitness is not of the float type (for example in multi-objective algorithms) consider as
+fitness the sum of the values of the objective functions. (For the stability of the algorithm
+these values should be scaled between 0 and 1 for all target functions)</p>
+<dl class="method">
+<dt id="pywinEA.operators.population.RouletteWheel.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">new_pop_length: int</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.population.RouletteWheel.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select individuals from the population. The best individuals are more likely to survive.</p>
+<p>:param population Population
+:param new_pop_length int</p>
+<blockquote>
+<div><p>Size of the individuals that will form the new population</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Population</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.operators.population.TournamentSelection">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.operators.population.</code><code class="sig-name descname">TournamentSelection</code><span class="sig-paren">(</span><em class="sig-param">k: int</em>, <em class="sig-param">replacement: bool = False</em>, <em class="sig-param">winners: int = 1</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.population.TournamentSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinEA.interface.html#pywinEA.interface.operators.SelectionStrategy" title="pywinEA.interface.operators.SelectionStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.operators.SelectionStrategy</span></code></a></p>
+<p>Class that implements the tournament selection strategy applicable to genetic algorithms.</p>
+<dl class="method">
+<dt id="pywinEA.operators.population.TournamentSelection.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">new_pop_length: int</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.operators.population.TournamentSelection.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that applies the tournament selection algorithm. It takes a total of k individuals randomly
+(without replacement / with replacement) from the population and returns the best of those k individuals.</p>
+<p>:param population Population
+:param new_pop_length int</p>
+<blockquote>
+<div><p>Size of the individuals that will form the new population</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Population
+Tournament winners</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pywinEA.operators</a><ul>
+<li><a class="reference internal" href="#module-pywinEA.operators.individual">pywinEA.operators.individual module</a></li>
+<li><a class="reference internal" href="#module-pywinEA.operators.population">pywinEA.operators.population module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinEA.interface.html"
+                        title="previous chapter">pywinEA.interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinEA.population.html"
+                        title="next chapter">pywinEA.population</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pywinEA.operators.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.population.html" title="pywinEA.population"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.interface.html" title="pywinEA.interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" >pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fernando García.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+    </div>
+  </body>
+</html>

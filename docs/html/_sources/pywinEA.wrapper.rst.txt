@@ -1,0 +1,11 @@
+pywinEA.wrapper
+===============
+
+pywinEA.wrapper.wrapper module
+------------------------------
+
+.. automodule:: pywinEA.wrapper.wrapper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

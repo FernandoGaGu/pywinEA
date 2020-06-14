@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pywinEA.interface &#8212; PyWinEA  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pywinEA.operators" href="pywinEA.operators.html" />
+    <link rel="prev" title="pywinEA.imputation" href="pywinEA.imputation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.operators.html" title="pywinEA.operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.imputation.html" title="pywinEA.imputation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" accesskey="U">pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinea-interface">
+<h1>pywinEA.interface<a class="headerlink" href="#pywinea-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pywinEA.interface.algorithm">
+<span id="pywinea-interface-algorithm-module"></span><h2>pywinEA.interface.algorithm module<a class="headerlink" href="#module-pywinEA.interface.algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.interface.algorithm.GAbase">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.algorithm.</code><code class="sig-name descname">GAbase</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all genetic algorithms.</p>
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.best_features">
+<em class="property">abstract property </em><code class="sig-name descname">best_features</code><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.best_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>It returns the best combination of features found by the algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.best_performance">
+<em class="property">abstract property </em><code class="sig-name descname">best_performance</code><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.best_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>It returns the best performance achieved by the algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>float or list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.continue_training">
+<em class="property">abstract </em><code class="sig-name descname">continue_training</code><span class="sig-paren">(</span><em class="sig-param">generations: int</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.continue_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method allows to continue training the algorithm since the last generation, over the indicated
+number of generations.</p>
+<blockquote>
+<div><p>continue_training(generations: int)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>generations</strong> – int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.fit">
+<em class="property">abstract </em><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X: numpy.ndarray</em>, <em class="sig-param">y: numpy.ndarray</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that starts the execution of the algorithm.</p>
+<blockquote>
+<div><p>fit(X: np.ndarray, y: np.ndarray)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – 2d-array
+Predictor variables.</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.get_current_generation">
+<em class="property">property </em><code class="sig-name descname">get_current_generation</code><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.get_current_generation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>int
+Current generation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.get_dataset">
+<em class="property">abstract </em><code class="sig-name descname">get_dataset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.get_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that returns a dataset with the selected features and associated class labels.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.load">
+<em class="property">classmethod </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file_name: str</em>, <em class="sig-param">dir_name: str = './_PyWinModels'</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class method that allows retrieving models stored in pickle files. By default the files will
+be recovered from _PyWinModels directory.</p>
+<blockquote>
+<div><p>load(file_name: str, dir_name: str = ‘./_PyWinModels’)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – str
+File name.</p></li>
+<li><p><strong>dir_name</strong> – &lt;optional&gt; (str)
+Directory where the file is located.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>pywin.algorithms.interface.GenAlgBase
+Genetic algorithm instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.population">
+<em class="property">property </em><code class="sig-name descname">population</code><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.population" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the population of the last generation explored by the algorithm. If the algorithm has not
+been fitted  it will return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>pywin.population.Population
+Last population.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.population_fitness">
+<em class="property">property </em><code class="sig-name descname">population_fitness</code><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.population_fitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the population fitness of the last generation explored by the algorithm. If the algorithm has
+not been fitted it will return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>1d-array / None
+Last population fitness.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.predict">
+<em class="property">abstract </em><code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X: numpy.ndarray</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that returns the predictions made by the best combination of model and features found by
+the algorithm.</p>
+<blockquote>
+<div><p>predict(X: np.ndarray)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> – 2d-array
+Predictor variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name: str</em>, <em class="sig-param">dir_name: str = './_PyWinModels'</em>, <em class="sig-param">overwrite: bool = False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that allows to serialize (using pickle) the model to later recover it and be able to continue
+the training process or explore the solutions. If a directory is not specified the model will be created
+and stored in _PyWinModels directory (If the folder does’t exists it will be created in the current
+directory). With overwrite parameter if there is a file with the same name it will be overwritten.</p>
+<blockquote>
+<div><p>save(file_name: str, dir_name: str = ‘./_PyWinModels’, overwrite: bool = False)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – str
+File name.</p></li>
+<li><p><strong>dir_name</strong> – &lt;optional&gt; str
+Directory where the file is located.</p></li>
+<li><p><strong>overwrite</strong> – bool
+True for overwrite files (False by default.)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.set_features">
+<code class="sig-name descname">set_features</code><span class="sig-paren">(</span><em class="sig-param">features: list</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.set_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that assigns to the numbers with which the genes (features) in the algorithm are encoded
+the real name of the feature. If no features are provided, the default names will be the column number.</p>
+<blockquote>
+<div><p>set_features(features: list)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> – list
+Features in the same order as the columns of the predictor variables passed to the fit method (see fit()).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.set_population">
+<code class="sig-name descname">set_population</code><span class="sig-paren">(</span><em class="sig-param">new_individuals: list</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.set_population" title="Permalink to this definition">¶</a></dt>
+<dd><p>It allows selecting a new population replacing the current population.</p>
+<blockquote>
+<div><p>set_population(new_individuals: list)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>new_individuals</strong> – list
+New population.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.GAbase.training_evolution">
+<em class="property">abstract </em><code class="sig-name descname">training_evolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.GAbase.training_evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that returns the data collected throughout the algorithm search.</p>
+<p>:return dict</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.interface.algorithm.MOAbase">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.algorithm.</code><code class="sig-name descname">MOAbase</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pywinEA.interface.algorithm.GAbase" title="pywinEA.interface.algorithm.GAbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">pywinEA.interface.algorithm.GAbase</span></code></a></p>
+<p>Base class for all multi-objective algorithms</p>
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.best_features">
+<em class="property">property </em><code class="sig-name descname">best_features</code><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.best_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get features from non dominated Pareto front.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list
+List with the selected features in each of the solutions of the non-dominated front.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.best_performance">
+<em class="property">property </em><code class="sig-name descname">best_performance</code><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.best_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the best values achieved for each of the objective functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list
+List with the best function values in each of the solutions of the non-dominated front.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.continue_training">
+<em class="property">abstract </em><code class="sig-name descname">continue_training</code><span class="sig-paren">(</span><em class="sig-param">generations: int</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.continue_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method allows to continue training the algorithm since the last generation, over the indicated
+number of generations.</p>
+<blockquote>
+<div><p>continue_training(generations: int)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>generations</strong> – int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.fit">
+<em class="property">abstract </em><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X: numpy.ndarray</em>, <em class="sig-param">y: numpy.ndarray</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that starts the execution of the algorithm.</p>
+<blockquote>
+<div><p>fit(X: np.ndarray, y: np.ndarray)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – 2d-array
+Predictor variables.</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.get_dataset">
+<em class="property">abstract </em><code class="sig-name descname">get_dataset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.get_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that returns a dataset with the selected features and associated class labels.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X: numpy.ndarray</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method NOT available for multi-objective algorithms</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.algorithm.MOAbase.training_evolution">
+<em class="property">abstract </em><code class="sig-name descname">training_evolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.MOAbase.training_evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that returns the data collected throughout the algorithm search.</p>
+<p>:return dict</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pywinEA.interface.algorithm.features_function">
+<code class="sig-prename descclassname">pywinEA.interface.algorithm.</code><code class="sig-name descname">features_function</code><span class="sig-paren">(</span><em class="sig-param">individual</em>, <em class="sig-param">total_feats: int = None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.algorithm.features_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default function to optimize the number of features: 1 - (num ind. Feat. / num total feat.)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pywinEA.interface.fitness">
+<span id="pywinea-interface-fitness-module"></span><h2>pywinEA.interface.fitness module<a class="headerlink" href="#module-pywinEA.interface.fitness" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.interface.fitness.FitnessStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.fitness.</code><code class="sig-name descname">FitnessStrategy</code><a class="headerlink" href="#pywinEA.interface.fitness.FitnessStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all fitness functions.</p>
+<dl class="method">
+<dt id="pywinEA.interface.fitness.FitnessStrategy.eval_fitness">
+<em class="property">abstract </em><code class="sig-name descname">eval_fitness</code><span class="sig-paren">(</span><em class="sig-param">X: numpy.ndarray</em>, <em class="sig-param">y: numpy.ndarray</em>, <em class="sig-param">num_feats: list</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.fitness.FitnessStrategy.eval_fitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that takes a population and return a list of scores related with individual
+fitness.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.fitness.FitnessStrategy.fit">
+<em class="property">abstract </em><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.fitness.FitnessStrategy.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that fit the algorithm to a given dataset and return the model fitted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinEA.interface.fitness.FitnessStrategy.score">
+<em class="property">abstract property </em><code class="sig-name descname">score</code><a class="headerlink" href="#pywinEA.interface.fitness.FitnessStrategy.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that return the score used to assess fitness</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pywinEA.interface.imputation">
+<span id="pywinea-interface-imputation-module"></span><h2>pywinEA.interface.imputation module<a class="headerlink" href="#module-pywinEA.interface.imputation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.interface.imputation.ImputationStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.imputation.</code><code class="sig-name descname">ImputationStrategy</code><a class="headerlink" href="#pywinEA.interface.imputation.ImputationStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that defines the interface that the imputation techniques must implement to be incorporated into a
+genetic algorithm. All subclasses derived from this class must implement the method impute().</p>
+<dl class="method">
+<dt id="pywinEA.interface.imputation.ImputationStrategy.impute">
+<em class="property">abstract </em><code class="sig-name descname">impute</code><span class="sig-paren">(</span><em class="sig-param">data: numpy.ndarray</em>, <em class="sig-param">y: numpy.ndarray</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.imputation.ImputationStrategy.impute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive the data whose missing values are to be imputed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – 2d-array
+Predictor variables with missing values.</p></li>
+<li><p><strong>y</strong> – 1d-array
+Class labels.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns data</dt>
+<dd class="field-odd"><p>2d-array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pywinEA.interface.operators">
+<span id="pywinea-interface-operators-module"></span><h2>pywinEA.interface.operators module<a class="headerlink" href="#module-pywinEA.interface.operators" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.interface.operators.AnnihilationStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.operators.</code><code class="sig-name descname">AnnihilationStrategy</code><a class="headerlink" href="#pywinEA.interface.operators.AnnihilationStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for annihilation strategies.</p>
+<dl class="method">
+<dt id="pywinEA.interface.operators.AnnihilationStrategy.annihilate">
+<em class="property">abstract static </em><code class="sig-name descname">annihilate</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">annihilation: float</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.operators.AnnihilationStrategy.annihilate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that takes a Population and eliminates the worst individuals using their fitness value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> – Population</p></li>
+<li><p><strong>annihilation</strong> – float</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.interface.operators.CrossOverStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.operators.</code><code class="sig-name descname">CrossOverStrategy</code><a class="headerlink" href="#pywinEA.interface.operators.CrossOverStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for cross-over strategies.</p>
+<dl class="method">
+<dt id="pywinEA.interface.operators.CrossOverStrategy.cross_population">
+<em class="property">abstract static </em><code class="sig-name descname">cross_population</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.operators.CrossOverStrategy.cross_population" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that receives a population and carry out the cross-over between the individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> – Population</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.interface.operators.ElitismStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.operators.</code><code class="sig-name descname">ElitismStrategy</code><a class="headerlink" href="#pywinEA.interface.operators.ElitismStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for elitism strategies.</p>
+<dl class="method">
+<dt id="pywinEA.interface.operators.ElitismStrategy.select_elite">
+<em class="property">abstract static </em><code class="sig-name descname">select_elite</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">elitism: float</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.operators.ElitismStrategy.select_elite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that takes a population and select the best individuals (elite)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> – Population</p></li>
+<li><p><strong>elitism</strong> – float</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.interface.operators.MutationStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.operators.</code><code class="sig-name descname">MutationStrategy</code><a class="headerlink" href="#pywinEA.interface.operators.MutationStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for mutation strategies.</p>
+<dl class="method">
+<dt id="pywinEA.interface.operators.MutationStrategy.mutate">
+<em class="property">abstract static </em><code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">mutation_rate: float</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.operators.MutationStrategy.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that receives a population and mutation rate and introduce variations in the individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> – Population</p></li>
+<li><p><strong>mutation_rate</strong> – float</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinEA.interface.operators.SelectionStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.operators.</code><code class="sig-name descname">SelectionStrategy</code><a class="headerlink" href="#pywinEA.interface.operators.SelectionStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for selection strategies.</p>
+<dl class="method">
+<dt id="pywinEA.interface.operators.SelectionStrategy.select">
+<em class="property">abstract </em><code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">population: pywinEA.population.population.Population</em>, <em class="sig-param">new_pop_length: int</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinEA.interface.operators.SelectionStrategy.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method receives a population, and the size of the new population that will be generated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> – Population</p></li>
+<li><p><strong>new_pop_length</strong> – int</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Population</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pywinEA.interface.wrapper">
+<span id="pywinea-interface-wrapper-module"></span><h2>pywinEA.interface.wrapper module<a class="headerlink" href="#module-pywinEA.interface.wrapper" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pywinEA.interface.wrapper.WrapperBase">
+<em class="property">class </em><code class="sig-prename descclassname">pywinEA.interface.wrapper.</code><code class="sig-name descname">WrapperBase</code><a class="headerlink" href="#pywinEA.interface.wrapper.WrapperBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for wrapper classes.</p>
+<dl class="method">
+<dt id="pywinEA.interface.wrapper.WrapperBase.algorithms">
+<em class="property">abstract property </em><code class="sig-name descname">algorithms</code><a class="headerlink" href="#pywinEA.interface.wrapper.WrapperBase.algorithms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all fitted algorithms.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pywinEA.interface</a><ul>
+<li><a class="reference internal" href="#module-pywinEA.interface.algorithm">pywinEA.interface.algorithm module</a></li>
+<li><a class="reference internal" href="#module-pywinEA.interface.fitness">pywinEA.interface.fitness module</a></li>
+<li><a class="reference internal" href="#module-pywinEA.interface.imputation">pywinEA.interface.imputation module</a></li>
+<li><a class="reference internal" href="#module-pywinEA.interface.operators">pywinEA.interface.operators module</a></li>
+<li><a class="reference internal" href="#module-pywinEA.interface.wrapper">pywinEA.interface.wrapper module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinEA.imputation.html"
+                        title="previous chapter">pywinEA.imputation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinEA.operators.html"
+                        title="next chapter">pywinEA.operators</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pywinEA.interface.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.operators.html" title="pywinEA.operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinEA.imputation.html" title="pywinEA.imputation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyWinEA  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pywinEA</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pywinEA.html" >pywinEA package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fernando García.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+pywinEA.imputation
+==================
+
+
+pywinEA.imputation.dynamic module
+---------------------------------
+
+.. automodule:: pywinEA.imputation.dynamic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.imputation.estimator module
+-----------------------------------
+
+.. automodule:: pywinEA.imputation.estimator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.imputation.fixed module
+-------------------------------
+
+.. automodule:: pywinEA.imputation.fixed
+   :members:
+   :undoc-members:
+   :show-inheritance:

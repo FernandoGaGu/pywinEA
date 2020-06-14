@@ -8,7 +8,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 <br />
 <p align="center">
-	<img src="img/PyWinEA_logo.gif" alt="Logo">
+	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/PyWinEA_logo.gif" alt="Logo">
 </p>
 
 > Python package with lightweight implementations of genetic algorithms for classification/regression tasks.
@@ -48,14 +48,89 @@ Examples of the basic use of the package can be found in the notebooks directory
 
 Additionally by using the classes defined in the interface subpackage it is possible to implement new operators, algorithms, etc. Feel free to add things.
 
+The following is an example of the most basic implementation of a genetic algorithm.
+```python
+# Basic GA
+from pywinEAt.algorithm import GA
+from sklearn.naive_bayes import GaussianNB  # Fitness function
+
+# Data loading and processing...
+
+POPULATION_SIZE = 50
+GENERATIONS = 200
+FITNESS = GaussianNB()
+CV = 5
+ANNHILATION = 0.1
+ELITISM = 0.2
+MUTATION = 0.1
+
+ga_basic = GA(
+    population_size=POPULATION_SIZE, generations=GENERATIONS, cv=CV,
+    fitness=FITNESS, annihilation=ANNHILATION, elitism=ELITISM, 
+    mutation_rate=MUTATION, positive_class=1, id="BasicGA"
+)
+
+ga_basic.set_features(feature_names)   #Selection of the feature names
+
+# Fit algorithm 
+ga_basic.fit(x_data, y_data) 
+
+# Get the names of the most relevant features
+ga_basic.best_features 
+```
 <br />
 <p align="center">
-	<img src="img/basic-example.gif" alt="Logo">
+	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/basic-example.gif" alt="Example">
 </p>
+
+This type of algorithm usually works well, however we may be interested in maximizing two objectives, for example the performance of the classifier (maximization) and the number of characteristics (minimization). In this case the multi-target algorithms (NSGA2 and SPEA2) are the best alternative.
+
+```python
+# Basic GA
+from pywinEAt.algorithm import NSGA2
+from sklearn.naive_bayes import GaussianNB  # Fitness function
+
+# Data loading and processing...
+
+POPULATION_SIZE = 50
+GENERATIONS = 200
+FITNESS = GaussianNB()
+CV = 5
+ANNHILATION = 0.1
+ELITISM = 0.2
+MUTATION = 0.1
+
+nsga = NSGA2(
+    population_size=POPULATION_SIZE, generations=GENERATIONS, 
+    fitness=mono_objective, mutation_rate=ELITISM, 
+    optimize_features=True, positive_class=1, id="NSGA2"
+)
+
+
+nsga.set_features(feature_names)   #Selection of the feature names
+
+# Fit algorithm 
+nsga.fit(x_data, y_data) 
+
+# Get the names of the most relevant features
+nsga.best_features 
+```
+The result of the multi-objective algorithms is a non-dominant front of solutions. For example:
+
+<br />
+<p align="center">
+	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/Pareto-front-example.png" alt="Structure">
+</p>
+
+(Complete examples: [notebooks](https://github.com/FernandoGaGu/pywinEA/tree/master/notebooks/))
 
 ## Module structure
 
-In progress...
+<br />
+<p align="center">
+	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/PyWinEAStructure.png" alt="Structure">
+</p>
+
 
 ## Notes
 

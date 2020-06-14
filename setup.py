@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pywinEA", 
-    version="0.6.0",
+    version="0.0.1",
     author="Fernando Garcia",
     author_email="fernando.garciagu@alumnos.upm.es",
     packages=setuptools.find_packages(),

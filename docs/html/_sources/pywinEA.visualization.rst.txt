@@ -1,0 +1,19 @@
+pywinEA.visualization
+=====================
+
+pywinEA.visualization.evaluation module
+---------------------------------------
+
+.. automodule:: pywinEA.visualization.evaluation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pywinEA.visualization.evolution module
+--------------------------------------
+
+.. automodule:: pywinEA.visualization.evolution
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
