@@ -86,7 +86,8 @@ ga_basic.best_features
 This type of algorithm usually works well, however we may be interested in maximizing two objectives, for example the performance of the classifier (maximization) and the number of characteristics (minimization). In this case the multi-target algorithms (NSGA2 and SPEA2) are the best alternative.
 
 ```python
-from pywinEAt.algorithm import NSGA2
+# Multi-objective
+from pywinEA.algorithm import NSGA2
 from sklearn.naive_bayes import GaussianNB  # Fitness function
 
 # Data loading and processing...
