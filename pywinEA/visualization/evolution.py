@@ -93,49 +93,67 @@ class Plotter:
             y_tot_idx_max.append(y_tot_fit[n].index(max(y_tot_fit[n])))
             x_tot_idx_max.append(generations[n][y_tot_idx_max[n]])
 
+        num_subplots = 6
+        fig_length = 40
+        if kwargs.get("simplified", False):
+            num_subplots = 2
+            fig_length = kwargs.get('fig_length', 8) 
+
         # Plot estimator(s) evolution
-        fig, ax = plt.subplots(6, figsize=(12, 40))
-        fig.subplots_adjust(wspace=0.5, hspace=0.5)
-        cmap = plt.cm.get_cmap(kwargs.get('cmap', 'viridis'), len(generations))
+        fig, ax = plt.subplots(num_subplots, figsize=(12, fig_length))
+        fig.subplots_adjust(wspace=kwargs.get('wspace', 0.2), hspace=0.5)
+        cmap = plt.cm.get_cmap(kwargs.get('cmap', 'viridis'), len(generations)+1)
 
         for n, algorithm in enumerate(algorithms):
-            # Subplot 0 -> Population evolution
-            ax[0].plot(generations[n], y_tot_fit[n], color=cmap(n),
-                       label="Population fitness (%s)" % algorithm.id)
-            ax[0].annotate('Maximum: %.3f' % max(y_tot_fit[n]), xy=(x_tot_idx_max[n], max(y_tot_fit[n])),
-                           xytext=(x_tot_idx_max[n], max(y_tot_fit[n]) * 1.0025),
-                           arrowprops=dict(facecolor='black', shrink=0.05))
 
-            # Subplot 1 -> Best fitness in population per generation
-            ax[1].plot(generations[n], y_best_fit[n], color=cmap(n),
-                       label="Best fitness (%s)" % algorithm.id)
-            ax[1].annotate('Maximum: %.3f' % max(y_best_fit[n]), xy=(x_best_idx_max[n], max(y_best_fit[n])),
-                           xytext=(x_best_idx_max[n], max(y_best_fit[n]) * 1.025),
-                           arrowprops=dict(facecolor='black', shrink=0.05))
+            if kwargs.get("simplified", False):
+                # Subplot 1 -> Best fitness in population per generation
+                ax[0].plot(generations[n], y_best_fit[n], color=cmap(n),
+                           label="Best fitness (%s)" % algorithm.id)
+                ax[0].annotate('Maximum: %.3f' % max(y_best_fit[n]), xy=(x_best_idx_max[n], max(y_best_fit[n])),
+                               xytext=(x_best_idx_max[n], max(y_best_fit[n]) * 1.025),
+                               arrowprops=dict(facecolor='black', shrink=0.05))
+                # Subplot 3 -> Number of features evolution in best individual per generation
+                ax[1].plot(generations[n], y_best_feat[n], color=cmap(n),
+                           label="Num. feats best indv. (%s)" % algorithm.id)                
+            else:
+                # Subplot 0 -> Population evolution
+                ax[0].plot(generations[n], y_tot_fit[n], color=cmap(n),
+                           label="Population fitness (%s)" % algorithm.id)
+                ax[0].annotate('Maximum: %.3f' % max(y_tot_fit[n]), xy=(x_tot_idx_max[n], max(y_tot_fit[n])),
+                               xytext=(x_tot_idx_max[n], max(y_tot_fit[n]) * 1.0025),
+                               arrowprops=dict(facecolor='black', shrink=0.05))
 
-            # Subplot 2 -> Number of features evolution in population
-            ax[2].plot(generations[n], y_mean_feat[n], color=cmap(n),
-                       label="Num. feats in population (%s)" % algorithm.id)
-            ax[2].fill_between(generations[n],
-                               np.array(y_mean_feat[n]) - (np.array(y_std_feat[n])),
-                               np.array(y_mean_feat[n]) + (np.array(y_std_feat[n])),
-                               alpha=0.1, color=cmap(n))
+                # Subplot 1 -> Best fitness in population per generation
+                ax[1].plot(generations[n], y_best_fit[n], color=cmap(n),
+                           label="Best fitness (%s)" % algorithm.id)
+                ax[1].annotate('Maximum: %.3f' % max(y_best_fit[n]), xy=(x_best_idx_max[n], max(y_best_fit[n])),
+                               xytext=(x_best_idx_max[n], max(y_best_fit[n]) * 1.025),
+                               arrowprops=dict(facecolor='black', shrink=0.05))
 
-            # Subplot 3 -> Number of features evolution in best individual per generation
-            ax[3].plot(generations[n], y_best_feat[n], color=cmap(n),
-                       label="Num. feats best indv. (%s)" % algorithm.id)
+                # Subplot 2 -> Number of features evolution in population
+                ax[2].plot(generations[n], y_mean_feat[n], color=cmap(n),
+                           label="Num. feats in population (%s)" % algorithm.id)
+                ax[2].fill_between(generations[n],
+                                   np.array(y_mean_feat[n]) - (np.array(y_std_feat[n])),
+                                   np.array(y_mean_feat[n]) + (np.array(y_std_feat[n])),
+                                   alpha=0.1, color=cmap(n))
 
-            # Subplot 4 -> Best score in population per generation
-            ax[4].plot(generations[n], y_best_performance[n],
-                       label="Best %s (%s)" % (scores[n], algorithm.id), color=cmap(n))
+                # Subplot 3 -> Number of features evolution in best individual per generation
+                ax[3].plot(generations[n], y_best_feat[n], color=cmap(n),
+                           label="Num. feats best indv. (%s)" % algorithm.id)
 
-            # Subplot 5 -> Score evolution in population
-            ax[5].plot(generations[n], y_mean_performance[n],
-                       label="Average %s (%s)" % (scores[n], algorithm.id), color=cmap(n))
-            ax[5].fill_between(generations[n],
-                               np.array(y_mean_performance[n]) - (np.array(y_std_performance[n])),
-                               np.array(y_mean_performance[n]) + (np.array(y_std_performance[n])),
-                               alpha=0.1, color=cmap(n))
+                # Subplot 4 -> Best score in population per generation
+                ax[4].plot(generations[n], y_best_performance[n],
+                           label="Best %s (%s)" % (scores[n], algorithm.id), color=cmap(n))
+
+                # Subplot 5 -> Score evolution in population
+                ax[5].plot(generations[n], y_mean_performance[n],
+                           label="Average %s (%s)" % (scores[n], algorithm.id), color=cmap(n))
+                ax[5].fill_between(generations[n],
+                                   np.array(y_mean_performance[n]) - (np.array(y_std_performance[n])),
+                                   np.array(y_mean_performance[n]) + (np.array(y_std_performance[n])),
+                                   alpha=0.1, color=cmap(n))
 
         # Get limits
         y_tot_fit_min, y_tot_fit_max, y_best_fit_min, y_best_fit_max = infinite, 0, infinite, 0
@@ -149,31 +167,40 @@ class Plotter:
             if max(best_fit) > y_best_fit_max:
                 y_best_fit_max = max(best_fit)
 
-        # Subplot 0 -> Population evolution
-        ax[0].set_ylim(bottom=y_tot_fit_min, top=y_tot_fit_max * 1.01)
-        ax[0].set_title("Total fitness in population")
-
-        # Subplot 1 -> Best fitness in population per generation
-        ax[1].set_ylim(bottom=y_best_fit_min, top=y_best_fit_max * 1.2)
-        ax[1].set_title("Best fitness in population / generation")
-
-        # Subplot 2 -> Number of features evolution in population
-        ax[2].set_title("Mean number of features in population")
-        ax[2].legend()
-
-        # Subplot 3 -> Number of features evolution in best individual per generation
-        ax[3].set_title("Number of features in best individual")
-        ax[3].legend()
-
-        # Subplot 4 -> Best score in population per generation
-        ax[4].set_title("Best %s per generation" % scores[0])
-        ax[4].set_ylim(bottom=0.5, top=1.0)
-        ax[4].legend()
-
-        # Subplot 5 -> Score evolution in population
-        ax[5].set_title("Average %s in population" % scores[0])
-        ax[5].set_ylim(bottom=0.5, top=1.0)
-        ax[5].legend()
+        title_params =  {
+            'family': kwargs.get('title_font', 'DejaVu Sans'), 
+            'weight': 'normal', 
+            'size': kwargs.get('title_size', 20),  
+            'verticalalignment': 'baseline'
+            }        
+        if kwargs.get("simplified", False):
+            # Subplot 1 -> Best fitness in population per generation
+            ax[0].set_ylim(bottom=y_best_fit_min, top=y_best_fit_max * 1.2)
+            ax[0].set_title("Best fitness in population / generation", fontdict=title_params, pad=20)
+            # Subplot 2 -> Number of features evolution in population
+            ax[1].set_title("Mean number of features in population", fontdict=title_params, pad=20)
+            ax[1].legend()            
+        else:
+            # Subplot 0 -> Population evolution
+            ax[0].set_ylim(bottom=y_tot_fit_min, top=y_tot_fit_max * 1.01)
+            ax[0].set_title("Total fitness in population", fontdict=title_params, pad=20)
+            # Subplot 1 -> Best fitness in population per generation
+            ax[1].set_ylim(bottom=y_best_fit_min, top=y_best_fit_max * 1.2)
+            ax[1].set_title("Best fitness in population / generation", fontdict=title_params, pad=20)
+            # Subplot 2 -> Number of features evolution in population
+            ax[2].set_title("Mean number of features in population", fontdict=title_params, pad=20)
+            ax[2].legend()
+            # Subplot 3 -> Number of features evolution in best individual per generation
+            ax[3].set_title("Number of features in best individual", fontdict=title_params, pad=20)
+            ax[3].legend()
+            # Subplot 4 -> Best score in population per generation
+            ax[4].set_title("Best %s per generation" % scores[0], fontdict=title_params, pad=20)
+            ax[4].set_ylim(bottom=0.5, top=1.0)
+            ax[4].legend()
+            # Subplot 5 -> Score evolution in population
+            ax[5].set_title("Average %s in population" % scores[0], fontdict=title_params, pad=20)
+            ax[5].set_ylim(bottom=0.5, top=1.0)
+            ax[5].legend()
 
         #  Remove borders and add grid to all graphics
         for subplot in ax:
@@ -181,7 +208,9 @@ class Plotter:
             subplot.spines['top'].set_visible(False)
             subplot.spines['right'].set_visible(False)
             handles, labels = subplot.get_legend_handles_labels()
-            subplot.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5), prop={'size': 12})
+            subplot.legend(
+                handles, labels, loc='upper center', bbox_to_anchor=(0.5, -0.1), 
+                fancybox=True, prop={'size': kwargs.get("legend_size", 12)})
 
         plt.show()
 
@@ -205,20 +234,25 @@ class Plotter:
             num_solutions.append(list(algorithm_stats['num_solutions_front'].values()))
             best_values.append(list(algorithm_stats['best_values'].values()))
 
+        # Sinmplified version plot only hypervolume convergence and Pareto front
+        num_subplots = 4
+        fig_length = 38
+
+        if kwargs.get('simplified', False):
+            num_subplots = 2
+            fig_length = kwargs.get('fig_length', 12) 
+
         # Plot estimator(s) evolution
-        fig, ax = plt.subplots(4, figsize=(12, 38))
-        fig.subplots_adjust(wspace=0.5, hspace=0.5)
+        fig, ax = plt.subplots(num_subplots, figsize=(kwargs.get('fig_width', 12), fig_length))
+        fig.subplots_adjust(wspace=kwargs.get('wspace', 0.2), hspace=0.5)
         linestyles = ['-', ':', '-.', '--']
-        cmap = plt.cm.get_cmap(kwargs.get('cmap', 'viridis'), len(algorithms))
+        cmap = plt.cm.get_cmap(kwargs.get('cmap', 'viridis'), len(algorithms)+1)
 
         for n, algorithm in enumerate(algorithms):
             # Subplot 0 -> Hypervolume
             ax[0].plot(generations[n], hypervolumes[n], color=cmap(n),
                        label="Algorithm: (%s)" % algorithm.id)
 
-            # Subplot 1 -> Number of solutions in Pareto front per generation
-            ax[1].plot(generations[n], num_solutions[n], color=cmap(n),
-                       label="Algorithm: (%s)" % algorithm.id)
 
             #  Get scores for current algorithm
             pareto_front = np.array([individual.fitness.values for individual in algorithm.population.individuals
@@ -226,27 +260,33 @@ class Plotter:
             #  Sort scores based on one metric
             idx = np.argsort(pareto_front[:, 0])
             pareto_front = pareto_front[idx, :]
-
-            ax[2].scatter(x=pareto_front[:, 0], y=pareto_front[:, 1],
+        
+            ax[int(num_subplots/2)].scatter(x=pareto_front[:, 0], y=pareto_front[:, 1],
                           color=cmap(n), alpha=0.5, label="Algorithm: (%s)" % algorithm.id)
 
             for score_idx in range(pareto_front.shape[0]):
-                ax[2].plot([0, pareto_front[:, 0][score_idx]],
+                ax[int(num_subplots/2)].plot([0, pareto_front[:, 0][score_idx]],
                            [pareto_front[:, 1][score_idx], pareto_front[:, 1][score_idx]],
                            color=cmap(n), alpha=0.1)
 
-                ax[2].plot([pareto_front[:, 0][score_idx], pareto_front[:, 0][score_idx]],
+                ax[int(num_subplots/2)].plot([pareto_front[:, 0][score_idx], pareto_front[:, 0][score_idx]],
                            [0, pareto_front[:, 1][score_idx]],
                            color=cmap(n), alpha=0.1)
 
-                ax[2].fill_between([0, pareto_front[:, 0][score_idx]],
+                ax[int(num_subplots/2)].fill_between([0, pareto_front[:, 0][score_idx]],
                                    [pareto_front[:, 1][score_idx], pareto_front[:, 1][score_idx]],
-                                   color=cmap(n), alpha=0.01)
+                                   color=cmap(n), alpha=kwargs.get('pf_alpha', 0.01))
 
-            # Subplot 3 -> Best values for each objective
-            for i, score in enumerate(scores):
-                ax[3].plot(generations[n], [value[i] for value in best_values[n]], color=cmap(n),
-                           linestyle=linestyles[i], label="Score: (%s) (%s)" % (score, algorithm.id))
+            if not kwargs.get('simplified', False):
+                # Subplot 1 -> Number of solutions in Pareto front per generation
+                ax[1].plot(generations[n], num_solutions[n], color=cmap(n),
+                           label="Algorithm: (%s)" % algorithm.id)
+
+                                # Subplot 3 -> Best values for each objective
+                for i, score in enumerate(scores):
+                    ax[3].plot(generations[n], [value[i] for value in best_values[n]], color=cmap(n),
+                               linestyle=linestyles[i], label="Score: (%s) (%s)" % (score, algorithm.id))
+
 
         # Get limits
         min_hyper, max_hyper, max_num_sol = 1, 0, 0
@@ -256,38 +296,52 @@ class Plotter:
             if max(volumes) > max_hyper: max_hyper = max(volumes)
             if max(num_sols) > max_num_sol: max_num_sol = max(num_sols)
 
+        title_params =  {
+            'family': kwargs.get('title_font', 'DejaVu Sans'), 
+            'weight': 'normal', 
+            'size': kwargs.get('title_size', 20),  
+            'verticalalignment': 'baseline'
+            }
+
         # Subplot 0 ->  Hypervolume
-        ax[0].set_ylim(bottom=min_hyper, top=max_hyper + 0.001)
-        ax[0].set_title("Hypervolume convergence")
-        ax[0].set_xlabel("Generations", size=15)
-        ax[0].set_ylabel("Hypervolume", size=15)
-        ax[0].legend(loc="lower right")
+        ax[0].set_title("Hypervolume convergence", fontdict=title_params, pad=20)
+        ax[0].set_ylim(bottom=min_hyper, top=max_hyper + 0.001)        
+        ax[0].set_xlabel("Generations", size=kwargs.get('x_label_size', 15))
+        ax[0].set_ylabel("Hypervolume", size=kwargs.get('y_label_size', 15))
 
-        # Subplot 1 -> Best fitness in population per generation
-        ax[1].set_ylim(bottom=0, top=max_num_sol + 1)
-        ax[1].set_title("Num. solutions in Pareto front")
-        ax[1].set_xlabel("Generations", size=15)
-        ax[1].set_ylabel("Numnber of solutions", size=15)
-        ax[1].legend()
+        ax[int(num_subplots/2)].set_title("Pareto front", fontdict=title_params)
+        ax[int(num_subplots/2)].set_ylim(bottom=kwargs.get('pf_bottom_y_lim', 0), top=kwargs.get('pf_top_y_lim', 1))
+        ax[int(num_subplots/2)].set_xlim(left=kwargs.get('pf_bottom_x_lim', 0), right=kwargs.get('pf_top_x_lim', 1))
+        ax[int(num_subplots/2)].set_xlabel(
+            "F(num_features)" if scores[0] == 'Num. features' else scores[0].capitalize(), 
+            size=kwargs.get('x_label_size', 15))
 
-        ax[2].set_title("Pareto front")
-        ax[2].set_ylim(bottom=0, top=1)
-        ax[2].set_xlabel("F(num_features)" if scores[0] == 'Num. features' else scores[0].capitalize(), size=15)
-        ax[2].set_ylabel("F(num_features)" if scores[1] == 'Num. features' else scores[1].capitalize(), size=15)
-        ax[2].legend()
+        ax[int(num_subplots/2)].set_ylabel(
+            "F(num_features)" if scores[1] == 'Num. features' else scores[1].capitalize(), 
+            size=kwargs.get('y_label_size', 15))
+        
+        
+        if not kwargs.get('simplified', False):
+            # Subplot 1 -> Best fitness in population per generation
+            ax[1].set_title("Num. solutions in Pareto front", fontdict=title_params, pad=20)
+            ax[1].set_ylim(bottom=0, top=max_num_sol + 1)
+            ax[1].set_xlabel("Generations", size=kwargs.get('x_label_size', 15))
+            ax[1].set_ylabel("Numnber of solutions", size=kwargs.get('y_label_size', 15))
 
-        # Subplot 3 -> Best value for each objective
-        ax[3].set_ylim(bottom=0.7, top=1)
-        ax[3].set_title("Best scores per generation")
-        ax[3].set_xlabel("Generations", size=15)
-        ax[3].set_ylabel("Score value", size=15)
-        ax[3].legend()
+            # Subplot 3 -> Best value for each objective
+            ax[3].set_title("Best scores per generation", fontdict=title_params, pad=20)
+            ax[3].set_ylim(bottom=0.7, top=1)        
+            ax[3].set_xlabel("Generations", size=kwargs.get('x_label_size', 15))
+            ax[3].set_ylabel("Score value", size=kwargs.get('y_label_size', 15))
+        
 
         for subplot in ax:
             subplot.grid(True, alpha=0.3)
             subplot.spines['top'].set_visible(False)
             subplot.spines['right'].set_visible(False)
             handles, labels = subplot.get_legend_handles_labels()
-            subplot.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5), prop={'size': 12})
+            subplot.legend(
+                handles, labels, loc='upper center', bbox_to_anchor=(0.5, -0.15), 
+                fancybox=True, prop={'size': kwargs.get("legend_size", 12)})
 
         plt.show()

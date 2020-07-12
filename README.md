@@ -22,7 +22,7 @@ This package has been developed on the top of scikit-learn which allows to use a
 
 One of the first stages in the development of any machine learning model is to filter out redundant and/or irrelevant attributes. However, the complexity of finding the best combination of attributes is most often an NP problem.
 
-Among the most frequent feature selection strategies are embedded methods. These methods combine a heuristic search strategy with a classification/regression model. This is where genetic algorithms come into play. This type of strategy represents one of the best alternatives to address the immense space of search generally reaching good solutions.
+Among the most frequent feature selection strategies are embedded methods. These methods combine a heuristic search strategy with a classification/regression model. This is where genetic algorithms come into play. This type of strategy represents one of the best alternatives to address the immense search space generally reaching good solutions.
 
 ## Install
 
@@ -70,7 +70,7 @@ ga_basic = GA(
     mutation_rate=MUTATION, positive_class=1, id="BasicGA"
 )
 
-ga_basic.set_features(feature_names)   #Selection of the feature names
+ga_basic.set_features(feature_names)   # Selection of the feature names (optional)
 
 # Fit algorithm 
 ga_basic.fit(x_data, y_data) 
@@ -104,7 +104,7 @@ nsga = NSGA2(
     optimize_features=True, positive_class=1, id="NSGA2"
 )
 
-nsga.set_features(feature_names)   #Selection of the feature names
+nsga.set_features(feature_names)   # Selection of the feature names (optional)
 
 # Fit algorithm 
 nsga.fit(x_data, y_data) 
@@ -119,7 +119,7 @@ The result of the multi-objective algorithms is a non-dominant front of solution
 	<img src="https://github.com/FernandoGaGu/pywinEA/blob/master/img/Pareto-front-example.png" alt="Example">
 </p>
 
-(Complete examples: [notebooks](https://github.com/FernandoGaGu/pywinEA/tree/master/notebooks/))
+For more examples it is recommended to take a look at the [notebooks](https://github.com/FernandoGaGu/pywinEA/tree/master/notebooks/).
 
 ## Module structure
 

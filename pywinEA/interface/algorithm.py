@@ -146,7 +146,7 @@ class GAbase:
 
         if positive_class_freq is None:
             raise ImpossibleProcessLabels(
-                "Label is not present. The available labels are: %r" % np.unique(label_names))
+                "Label is not present. Available labels are: %r" % np.unique(label_names))
 
         elif positive_class_freq < (counts.sum() / 4):
             print("WARNING: Unbalanced problem.\n\tPositive class: %d\n\tNegative class: %d" %

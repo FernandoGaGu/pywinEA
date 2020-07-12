@@ -575,7 +575,7 @@ class GA(GAbase):
                 offspring = self.mutation.mutate(population=offspring, mutation_rate=self.mutation_rate)
 
             # Merge elite and offspring
-            if self.elitism is not None and elite.length != 0:
+            if self.elitism is not None and elite_length != 0:
                 offspring = self._population.merge_population(offspring, elite)
 
             # Evaluate fitness
